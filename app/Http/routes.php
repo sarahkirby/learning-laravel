@@ -12,9 +12,23 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
+Route::get('about', function () {
+	return view('about');
+});
+
+Route::get('contact', function () {
+	return view('contact');
+});
+
+Route::post('contact', function() {
+	return 'Sent contact form';
+});
+
+// get request products page. Calls Products Controller and run function index
+Route::get('products', 'ProductsController@index');
 /*
 |--------------------------------------------------------------------------
 | Application Routes
