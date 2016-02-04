@@ -12,17 +12,11 @@ class ProductsController extends Controller
 	// In charge of showing the default products page
    public function index() {
 
-   	$products = [
-   		[
-   			'name'  => 'Apple',
-   			'price' => '$1',
-   		],
-   		[
-   			'name'  => 'Banana',
-   			'price' => '$4'
-		]
-   	];
+// find the Product class and run its method all (grab everything). \ - go to root and look for class
+   	// $products = \App\Product::all();
 
+// writing sql but with php
+   	$products = \App\Product::where('price', '>', '1.50')->get();
    	$popularProducts = [];
 
    		return view('products', compact('products', 'popularProducts'));
