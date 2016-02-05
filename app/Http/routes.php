@@ -29,6 +29,15 @@ Route::post('contact', function() {
 
 // get request products page. Calls Products Controller and run function index
 Route::get('products', 'ProductsController@index');
+Route::get('products/create', 'ProductsController@create')->middleware('web');
+// when submit form - post request and store function. middleware - authentication - login restigation etc i think. This is how we display $errors
+Route::post('products/store', 'ProductsController@store')->middleware('web');
+// Single product page
+Route::get('products/{id}', 'ProductsController@show');
+Route::get('products/{id}/edit', 'ProductsController@edit')->middleware('web');
+Route::post('products/{id}/edit', 'ProductsController@update')->middleware('web');
+
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
